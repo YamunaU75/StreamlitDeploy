@@ -58,7 +58,7 @@ jsonschema==4.21.1
 jsonschema-specifications==2023.12.1
 jupyter_client 
 jupyter_core
-keras 2.10.0
+keras 
 Keras-Preprocessing 
 kiwisolver 
 Markdown 
@@ -134,10 +134,10 @@ stack-data
 streamlit==1.33.0
 tenacity==8.2.3
 tensorboard 
-tensorboard-data-server 0.6.1
-tensorboard-plugin-wit 1.8.1
+tensorboard-data-server 
+tensorboard-plugin-wit 
 tensorflow==2.10.0
-tensorflow-estimator 2.10.0
+tensorflow-estimator 
 termcolor 
 textblob==0.15.3
 threadpoolctl 
