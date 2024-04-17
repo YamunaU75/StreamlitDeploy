@@ -3,6 +3,12 @@ import pandas as pd
 import numpy as np
 import pickle
 
+import nltk
+try:
+       nltk.data.find('corpora/stopwords')
+except LookupError:
+       nltk.download('stopwords')
+
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 from nltk.tokenize import word_tokenize
@@ -15,8 +21,8 @@ from PIL import Image
 st.header('Fortune Medical Associates')
 st.image('images/TopPicture1.jpg', use_column_width = 'always')    
 
-condition_options = ['Birth Control', 'Depression', 'Pain', 'Anxiety', 'Acne', 'Bipolar', 'Insomnia', 'WeightLoss', 'Obesity', 'ADHD', 'Other']
-condition = st.selectbox("Enter your health condition info:", condition_options)
+#condition_options = ['Birth Control', 'Depression', 'Pain', 'Anxiety', 'Acne', 'Bipolar', 'Insomnia', 'WeightLoss', 'Obesity', 'ADHD', 'Other']
+#condition = st.selectbox("Enter your health condition info:", condition_options)
 
 # Load the model 
 with open('FortuneMedical_Model.pkl', 'rb') as file:
@@ -56,8 +62,8 @@ input_trans = stemm.transform(pd.Series([input_review]))
 predictions = loaded_model.predict(input_trans)
 
 if predictions == 1:
-    st.success("Result: Medication worked, positive review")
+    st.success("Result: Positive review")
 else:
-    st.error("Result: Medication didn't work, negative review, consult with Doctor")
+    st.error("Result: Negative review, consult with Doctor")
 
 
